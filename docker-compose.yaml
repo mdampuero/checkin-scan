@@ -2,6 +2,7 @@ version: "3.5"
 services:
     app:
         build: .
+        container_name: checkin-scan-nginx
         ports:
             - "3000:3000"
         volumes:
@@ -16,15 +17,15 @@ services:
             SECRET: LaClaveEsSecreta
             DB_PORT: 3306
             DB_USER: checkin-scan
-            DB_PASS: 123456
+            DB_PASS: '123456'
             DB_NAME: checkin-scan
             DEFAULT_USER_NAME: api
             DEFAULT_USER_EMAIL: api@host.com
-            DEFAULT_USER_PASS: 123456
+            DEFAULT_USER_PASS: '123456'
             JWT_EXPIRE: 1h
     mariadb:
         image: mariadb
-        container_name: mariadb
+        container_name: checkin-scan-mariadb
         restart: always
         mem_limit: 1g
         networks:
