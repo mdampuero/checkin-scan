@@ -1,0 +1,46 @@
+version: "3.5"
+services:
+    app:
+        build: .
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./var:/app/var
+        depends_on:
+            - mariadb
+        networks:
+            - bridge
+        environment:
+            DB_HOST: mariadb
+            PORT: 3000
+            SECRET: LaClaveEsSecreta
+            DB_PORT: 3306
+            DB_USER: checkin-scan
+            DB_PASS: 123456
+            DB_NAME: checkin-scan
+            DEFAULT_USER_NAME: api
+            DEFAULT_USER_EMAIL: api@host.com
+            DEFAULT_USER_PASS: 123456
+            JWT_EXPIRE: 1h
+    mariadb:
+        image: mariadb
+        container_name: mariadb
+        restart: always
+        mem_limit: 1g
+        networks:
+            - bridge
+        ports:
+            - 3306:3306
+        expose:
+            - 3306
+        volumes:
+            - ./database/working:/var/lib/mysql
+            - ./database/backups:/var/db/backups
+        environment:
+            - MYSQL_DATABASE=checkin-scan
+            - MYSQL_ROOT_PASSWORD=123456
+            - MYSQL_USER=checkin-scan
+            - MYSQL_PASSWORD=123456
+networks:
+    bridge:
+        driver: bridge
