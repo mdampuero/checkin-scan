@@ -1,8 +1,16 @@
 # Proyecto Checkin Scan
 
-Este es un proyecto Node.js. Utiliza Docker Compose para ejecutar dos contenedores: uno para Node.js y otro para MariaDB.
+Este es un proyecto Node.js. Utiliza Docker Compose para ejecutar dos contenedores: uno para Node.js y otro para MariaDB. Se crean las tablas automaticamente y se genera un usuario para poder logearse y generar un JWT y consumir la api de productos:
 
-Puedes ver una demo en línea del proyecto [aquí](https://checkin-scan.latamhosting.net/api-docs/).
+Método POST: https://checkin-scan.latamhosting.net/api/auth/login
+```bash
+{
+  "email": "api@host.com",
+  "password": "123456"
+}
+```
+
+Puedes ver una demo en línea del proyecto y su documentación [aquí](https://checkin-scan.latamhosting.net/api-docs/). 
 
 
 ## Pasos para ejecutar el proyecto
