@@ -1,8 +1,10 @@
 
 require('dotenv').config();
-
-const Server = require('./models/server');
-
-const server = new Server();
-
-server.listen();
+/**
+ * Delay waiting for mariadb server to be ready
+ */
+setTimeout(() => {
+    const Server = require('./models/server');
+    const server = new Server();
+    server.listen();
+}, 3000);
