@@ -15,6 +15,7 @@ const swaggerOptions = {
         },
         servers: [
             {
+                url: "https://checkin-scan.latamhosting.net",
                 url: "http://localhost:3000",
             },
         ],
