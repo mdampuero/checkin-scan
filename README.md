@@ -15,6 +15,8 @@ Puedes ver una demo en línea del proyecto y su documentación [aquí](https://c
 
 ## Pasos para ejecutar el proyecto
 
+Tener en cuenta que este proyecto utiliza los puertos 3000 y 3306, si es su entorno local están siendo utilizados por otra aplicación recuerde cambiarlos antes de iniciar el proyecto desde el archivo docker-compose.yaml.
+
 1. Clona el repositorio:
 
 ```bash
